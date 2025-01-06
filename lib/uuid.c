@@ -235,7 +235,9 @@ void uuid_bin_to_str(unsigned char *uuid_bin, char *uuid_str, int str_format)
 void gen_rand_uuid(unsigned char *uuid_bin)
 {
 	struct uuid uuid;
-	unsigned int *ptr = (unsigned int *)&uuid;
+	unsigned int aligned_uuid[sizeof(uuid) / sizeof(unsigned int)];
+    memcpy(aligned_uuid, &uuid, sizeof(uuid));
+    unsigned int *ptr = aligned_uuid;
 	int i;
 
 	/* Set all fields randomly */
