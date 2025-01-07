@@ -96,8 +96,8 @@ static int android_image_get_signature(const struct andr_img_hdr *hdr,
 	ulong addr = 0;
 
 	struct boot_img_hdr_ex hdr_ex_aligned;
-    memcpy(&hdr_ex_aligned, hdr, sizeof(hdr_ex_aligned));
-    hdr_ex = &hdr_ex_aligned;
+	memcpy(&hdr_ex_aligned, hdr, sizeof(hdr_ex_aligned));
+	hdr_ex = &hdr_ex_aligned;
 	if (strncmp((void *)(hdr_ex->cert_magic), AW_CERT_MAGIC,
 		    strlen(AW_CERT_MAGIC))) {
 		printf("No cert image embeded, image %s\n", hdr_ex->cert_magic);

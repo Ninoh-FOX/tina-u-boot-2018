@@ -723,8 +723,8 @@ int gpt_verify_partitions(struct blk_desc *dev_desc,
 
 		/* Check if GPT and ENV partition names match */
 		uint16_t aligned_partition_name[ARRAY_SIZE(gpt_e[i].partition_name)];
-        memcpy(aligned_partition_name, gpt_e[i].partition_name, sizeof(aligned_partition_name));
-        gpt_convert_efi_name_to_char(efi_str, aligned_partition_name,
+		memcpy(aligned_partition_name, gpt_e[i].partition_name, sizeof(aligned_partition_name));
+		gpt_convert_efi_name_to_char(efi_str, aligned_partition_name,
 					     PARTNAME_SZ + 1);
 
 		debug("%s: part: %2d name - GPT: %16s, ENV: %16s ",
